@@ -2,17 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Corporate Design System - Professional, Sophisticated & Modern */
 
 @layer base {
   :root {
-   
-  }
-
-  .dark {
-
+    /* Corporate Color Palette */
+    --primary: 220 100% 7%;           /* Deep Navy Blue */
+    --primary-foreground: 0 0% 98%;   /* Almost White */
+    --secondary: 215 25% 27%;         /* Charcoal Blue */
+    --secondary-foreground: 0 0% 98%; /* Almost White */
+    --accent: 210 100% 50%;           /* Professional Blue */
+    --accent-foreground: 0 0% 98%;    /* Almost White */
+    
+    /* Sophisticated Grays */
+    --background: 0 0% 100%;          /* Pure White */
+    --foreground: 220 13% 13%;        /* Dark Charcoal */
+    --muted: 210 20% 98%;             /* Light Gray */
+    --muted-foreground: 215 13% 45%;  /* Medium Gray */
+    
+    /* Semantic Colors */
+    --card: 0 0% 100%;                /* Pure White */
+    --card-foreground: 220 13% 13%;   /* Dark Charcoal */
+    --popover: 0 0% 100%;             /* Pure White */
+    --popover-foreground: 220 13% 13%; /* Dark Charcoal */
+    
+    /* UI Elements */
+    --border: 214 20% 92%;            /* Light Border */
+    --input: 214 20% 92%;             /* Light Input */
+    --ring: 210 100% 50%;             /* Professional Blue */
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;         /* Professional Red */
+    --destructive-foreground: 0 0% 98%; /* Almost White */
+    
+    /* Radius */
+    --radius: 0.5rem;
   }
 }
 
@@ -23,5 +47,112 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
+
+  /* Corporate Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-5xl lg:text-6xl leading-tight;
+  }
+
+  h2 {
+    @apply text-4xl lg:text-5xl leading-tight;
+  }
+
+  h3 {
+    @apply text-3xl lg:text-4xl leading-tight;
+  }
+
+  h4 {
+    @apply text-2xl lg:text-3xl leading-tight;
+  }
+}
+
+@layer components {
+  /* Corporate Button Variants */
+  .btn-corporate {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 
+           px-8 py-4 text-lg font-semibold rounded-lg 
+           transition-all duration-300 shadow-lg hover:shadow-xl
+           border-2 border-primary hover:border-primary/90;
+  }
+
+  .btn-corporate-outline {
+    @apply bg-transparent text-primary border-2 border-primary 
+           hover:bg-primary hover:text-primary-foreground
+           px-8 py-4 text-lg font-semibold rounded-lg 
+           transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .btn-corporate-ghost {
+    @apply bg-transparent text-foreground hover:bg-muted 
+           px-6 py-3 text-base font-medium rounded-md 
+           transition-all duration-300;
+  }
+
+  /* Corporate Sections */
+  .section-corporate {
+    @apply py-20 lg:py-32;
+  }
+
+  .section-corporate-alt {
+    @apply py-20 lg:py-32 bg-muted/30;
+  }
+
+  /* Corporate Cards */
+  .card-corporate {
+    @apply bg-card border border-border rounded-xl p-8 
+           shadow-lg hover:shadow-xl transition-all duration-300
+           hover:border-accent/20;
+  }
+
+  .card-corporate-feature {
+    @apply bg-card border border-border rounded-xl p-8 
+           shadow-md hover:shadow-lg transition-all duration-300
+           hover:border-accent/30 hover:-translate-y-1;
+  }
+
+  /* Corporate Gradients */
+  .gradient-corporate {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .gradient-corporate-light {
+    background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+  }
+}
+
+/* Corporate Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
 }
